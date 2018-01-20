@@ -118,6 +118,7 @@ namespace MathQuiz
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            timeLabel.ForeColor = Color.Black;
             StartTheQuiz();
             startButton.Enabled = false;
         }
@@ -130,10 +131,10 @@ namespace MathQuiz
                 // got the answer right. Stop the timer  
                 // and show a MessageBox.
                 timer1.Stop();
+                timeLabel.ForeColor = Color.Black;
                 MessageBox.Show("You got all the answers right!",
                                 "Congratulations!");
                 startButton.Enabled = true;
-                timeLabel.ForeColor = Color.Black;
             }
             else if (timeLeft > 1)
             {
@@ -162,7 +163,7 @@ namespace MathQuiz
                 quotient.Value = dividend / divisor;
                 startButton.Enabled = true;
             }
-            if (timeLeft <= 15)
+            if (timeLeft < 15)
             {
                 timeLabel.ForeColor = Color.Red;
             }
